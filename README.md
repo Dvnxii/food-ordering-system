@@ -1,16 +1,9 @@
-🍛 Campus Canteen — College Food Ordering System
+Campus Canteen — College Food Ordering System
 
 A full-stack Java + React food ordering system with real-time push notifications via WebSocket and Firebase FCM.
 Tech Stack
 
-| Layer | Technology |
-| Backend | Java 17 + Spring Boot 3.2 |
-| Auth | Spring Security + JWT |
-| Real-time | WebSocket (STOMP/SockJS) |
-| Push Notifications | Firebase Cloud Messaging (FCM) |
-| Database | H2 (dev) / MySQL (prod) |
-| Frontend | React 18 + Vite |
-Quick Start
+->Layer ->Technology ->->Backend ->Java 17 + Spring Boot 3.2 ->->Auth ->Spring Security + JWT ->->Real-time ->WebSocket (STOMP/SockJS) ->->Push Notifications ->Firebase Cloud Messaging (FCM) ->->Database ->H2 (dev) / MySQL (prod) ->->Frontend ->React 18 + Vite ->Quick Start
 
 Prerequisites
 - Java 17+
@@ -27,10 +20,10 @@ mvn spring-boot:run
 The server starts at http://localhost:8080
 
 Sample accounts are auto-created:
-| Role | Email | Password |
-| Student | student@college.edu | password123 |
-| Student | student2@college.edu | password123 |
-| Staff | staff@canteen.edu | password123 |
+->Role ->Email ->Password 
+->Student ->student@college.edu ->password123 
+->Student ->student2@college.edu ->password123 
+->Staff ->staff@canteen.edu ->password123 
 
 H2 Database Console: http://localhost:8080/h2-console
 - JDBC URL: `jdbc:h2:mem:food_ordering`
@@ -45,8 +38,8 @@ npm run dev
 
 
 Frontend runs at http://localhost:3000
-How Notifications Work
 
+How Notifications Work
 
 Student places order
        ↓
@@ -87,46 +80,24 @@ Enable Firebase Push Notifications
 API Endpoints
 
 Auth
-| Method | URL | Description |
-| POST | /api/auth/register | Register new user |
-| POST | /api/auth/login | Login |
-| POST | /api/auth/fcm-token | Save device FCM token |
+->Method ->URL ->Description 
+->POST ->/api/auth/register ->Register new user 
+->POST ->/api/auth/login ->Login 
+->POST ->/api/auth/fcm-token ->Save device FCM token 
 
 Menu
-| Method | URL | Auth |
-| GET | /api/menu | Public |
-| POST | /api/menu | Staff only |
-| PUT | /api/menu/{id} | Staff only |
-| PATCH | /api/menu/{id}/availability | Staff only |
+->Method ->URL ->Auth 
+->GET ->/api/menu ->Public 
+->POST ->/api/menu ->Staff only 
+->PUT ->/api/menu/{id} ->Staff only 
+->PATCH ->/api/menu/{id}/availability ->Staff only 
 
 Orders
-| Method | URL | Auth | Description |
-| POST | /api/orders | Student | Place order |
-| GET | /api/orders/my | Student | My order history |
-| GET | /api/orders/active | Staff | All active orders |
-| PUT | /api/orders/{id}/status | Staff | Update status → triggers notification |
-| GET | /api/orders/stats | Staff | Dashboard counts |
-Project Structure
+->Method ->URL ->Auth ->Description 
+->POST ->/api/orders ->Student ->Place order 
+->GET ->/api/orders/my ->Student ->My order history 
+->GET ->/api/orders/active ->Staff ->All active orders 
+->PUT ->/api/orders/{id}/status ->Staff ->Update status → triggers notification 
+->GET ->/api/orders/stats ->Staff ->Dashboard counts 
 
-
-food-ordering-system/
-├── backend/
-│   ├── pom.xml
-│   └── src/main/java/com/college/food/
-│       ├── FoodOrderingApplication.java
-│       ├── config/(Security, WebSocket, Firebase, DataInitializer)
-│       ├── controller/(Auth, Menu, Order)
-│       ├── service/(Order, Notification, UserDetails)
-│       ├── model/(User, Order, OrderItem, MenuItem)
-│       ├── repository/(JPA interfaces)
-│       ├── security/(JwtUtil, JwtAuthFilter)
-│       └── dto/(AuthDto, OrderDto)
-└── frontend/
-    └── src/
-        ├── App.jsx
-        ├── context/         (AuthContext)
-        ├── pages/           (Login, Menu, MyOrders, Staff)
-        ├── components/      (Navbar, Cart)
-        ├── hooks/           (useNotifications - WebSocket)
-        └── services/        (api.js - Axios)
 
